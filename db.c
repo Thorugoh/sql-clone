@@ -357,10 +357,6 @@ int main(int argc, char* argv[]){
         print_prompt();
         read_input(input_buffer);
 
-        if(strcmp(input_buffer->buffer, ".exit") == 0) {
-            close_input_buffer(input_buffer);
-            exit(EXIT_SUCCESS);
-        } 
         if(input_buffer->buffer[0] == '.'){
             switch(do_meta_command(input_buffer, table)) {
                 case(META_COMMAND_SUCCESS):
@@ -369,8 +365,6 @@ int main(int argc, char* argv[]){
                     printf("Unrecognized command '%s'\n", input_buffer->buffer);
                     continue;
             }
-
-            
         }
 
         Statement statement;
